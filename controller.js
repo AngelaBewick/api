@@ -18,7 +18,7 @@ const insertIntoDB = async function () {
     console.log(error);
   }
 };
-insertIntoDB();
+// insertIntoDB();
 
 const deleteRow = async function () {
   const connection = await mysql.createConnection({
