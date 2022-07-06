@@ -2,12 +2,12 @@ const mysql = require("mysql2/promise");
 const express = require("express");
 const app = express();
 require("dotenv").config();
-const config = require("./Configure/configDB.js");
+const configDB = require("./Configure/configDB.js");
 const hash = require("js-sha512").sha512_224;
 // app.use(express.json()); //converts data in req.body to json format
 
 const getAllItems = async function (req, res, next) {
-  const connection = await mysql.createConnection(config.db);
+  const connection = await mysql.createConnection(configDB.db);
 
   try {
     await connection.query(`SELECT * FROM todo`);
@@ -17,7 +17,7 @@ const getAllItems = async function (req, res, next) {
   }
 };
 const addItem = async function (req, res, next) {
-  const connection = await mysql.createConnection(config.db);
+  const connection = await mysql.createConnection(configDB.db);
 
   try {
     await connection.query(
