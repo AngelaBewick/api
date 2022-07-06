@@ -14,7 +14,7 @@ const port = process.env.PORT || 3000;
 
 const start = async function () {
   try {
-    await mysql.createConnection(config.db);
+    await mysql.createConnection(configDB.db);
 
     app.listen(port, () => {
       console.log(`Server listening on port ${port}...`);
