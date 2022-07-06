@@ -50,7 +50,6 @@ const deleteItem = async function (req, res, next) {
 // deleteItem();
 
 module.exports = {
-  addUser,
   addItem,
   deleteItem,
   getAllItems,
