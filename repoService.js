@@ -8,7 +8,6 @@ const app = express();
 
 const getAllItems = async function (req, res, next) {
   try {
-    res.send("Hello api/v1");
     const mysql = require("mysql2/promise");
     const connection = await mysql.createConnection({
       host: "sql3.freesqldatabase.com",
@@ -18,7 +17,15 @@ const getAllItems = async function (req, res, next) {
       port: 3306,
     });
     const [rows, fields] = await connection.execute("SELECT * FROM todo");
-    console.log(rows);
+    // console.log(rows);
+    console.log(rows, rows[0]["item_id"]);
+    res.json({
+      id: `${rows[0]["item_id"]}`,
+      priority: `${rows[0]["priority"]}`,
+      date: `${rows[0]["date"]}`,
+      type: `${rows[0]["type"]}`,
+      description: `${rows[0]["item_description"]}`,
+    });
   } catch (error) {
     res.status(500).json({ msg: error });
   }
