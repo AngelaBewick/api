@@ -6,25 +6,25 @@
 // const hash = require("js-sha512").sha512_224;
 // // app.use(express.json()); //converts data in req.body to json format
 
-// const getAllItems = async function (req, res, next) {
-//   const mysql = require("mysql2/promise");
+const getAllItems = async function (req, res, next) {
+  const mysql = require("mysql2/promise");
 
-//   const connection = await mysql.createConnection({
-//     host: "sql3.freesqldatabase.com",
-//     user: process.env.DATABASE_USER,
-//     password: process.env.DATABASE_PASSWORD,
-//     database: process.env.DATABASE_USER,
-//     port: 3306,
-//   });
-//   const [rows, fields] = await connection.execute("SELECT * FROM todo");
-//   console.log(rows);
-//   // try {
-//   //   await connection.query(`SELECT * FROM todo`);
-//   //   console.log("all data received");
-//   // } catch (error) {
-//   //   console.log(error);
-//   // }
-// };
+  //   const connection = await mysql.createConnection({
+  //     host: "sql3.freesqldatabase.com",
+  //     user: process.env.DATABASE_USER,
+  //     password: process.env.DATABASE_PASSWORD,
+  //     database: process.env.DATABASE_USER,
+  //     port: 3306,
+  //   });
+  const [rows, fields] = await connection.execute("SELECT * FROM todo");
+  console.log(rows);
+  //   // try {
+  //   //   await connection.query(`SELECT * FROM todo`);
+  //   //   console.log("all data received");
+  //   // } catch (error) {
+  //   //   console.log(error);
+  //   // }
+};
 // const addItem = async function (req, res, next) {
 //   const connection = await mysql.createConnection(configDB.db);
 
@@ -58,8 +58,8 @@
 // };
 // // deleteItem();
 
-// module.exports = {
-//   addItem,
-//   deleteItem,
-//   getAllItems,
-// };
+module.exports = {
+  //   addItem,
+  //   deleteItem,
+  getAllItems,
+};
