@@ -1,6 +1,9 @@
 const express = require("express");
 const router = express.Router();
-
+const app = express();
+app.use((req, res) => {
+  res.send("Hello api/v1");
+});
 // //import functions from repoService
 // const { getAllItems, addItem, deleteItem } = require("../repoService.js");
 const { getAllItems } = require("../repoService.js");

@@ -1,6 +1,6 @@
 // const mysql = require("mysql2/promise");
-// const express = require("express");
-// const app = express();
+const express = require("express");
+const app = express();
 // require("dotenv").config();
 // const configDB = require("./Configure/configDB.js");
 // const hash = require("js-sha512").sha512_224;
@@ -18,6 +18,9 @@ const getAllItems = async function (req, res, next) {
   });
   const [rows, fields] = await connection.execute("SELECT * FROM todo");
   console.log(rows);
+  app.use((req, res) => {
+    res.send(rows);
+  });
   //   // try {
   //   //   await connection.query(`SELECT * FROM todo`);
   //   //   console.log("all data received");
