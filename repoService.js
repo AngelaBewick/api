@@ -7,6 +7,8 @@ const app = express();
 // // app.use(express.json()); //converts data in req.body to json format
 
 const getAllItems = async function (req, res, next) {
+  res.send("Hello api/v1");
+
   const mysql = require("mysql2/promise");
 
   const connection = await mysql.createConnection({
