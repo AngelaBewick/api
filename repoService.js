@@ -19,13 +19,12 @@ const getAllItems = async function (req, res, next) {
     const [rows, fields] = await connection.execute("SELECT * FROM todo");
     // console.log(rows);
     console.log(rows, rows[0]["item_id"]);
-    res.json({
-      id: `${rows[0]["item_id"]}`,
-      priority: `${rows[0]["priority"]}`,
-      date: `${rows[0]["date"]}`,
-      type: `${rows[0]["type"]}`,
-      description: `${rows[0]["item_description"]}`,
-    });
+    // id: `${rows[0]["item_id"]}`,
+    // priority: `${rows[0]["priority"]}`,
+    // date: `${rows[0]["date"]}`,
+    // type: `${rows[0]["type"]}`,
+    // description: `${rows[0]["item_description"]}`,
+    res.json({ rows });
   } catch (error) {
     res.status(500).json({ msg: error });
   }
