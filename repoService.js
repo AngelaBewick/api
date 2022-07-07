@@ -9,13 +9,13 @@
 const getAllItems = async function (req, res, next) {
   const mysql = require("mysql2/promise");
 
-  //   const connection = await mysql.createConnection({
-  //     host: "sql3.freesqldatabase.com",
-  //     user: process.env.DATABASE_USER,
-  //     password: process.env.DATABASE_PASSWORD,
-  //     database: process.env.DATABASE_USER,
-  //     port: 3306,
-  //   });
+  const connection = await mysql.createConnection({
+    host: "sql3.freesqldatabase.com",
+    user: "sql3501239",
+    password: "yS6L1p416X",
+    database: "sql3501239",
+    port: 3306,
+  });
   const [rows, fields] = await connection.execute("SELECT * FROM todo");
   console.log(rows);
   //   // try {
