@@ -19,8 +19,6 @@ const getAllItems = async function (req, res, next) {
     });
     const [rows, fields] = await connection.execute("SELECT * FROM todo");
     console.log(rows);
-    res.send(rows);
-    res.status(200).json({ rows });
   } catch (error) {
     res.status(500).json({ msg: error });
   }
