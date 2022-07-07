@@ -7,22 +7,23 @@ const app = express();
 // // app.use(express.json()); //converts data in req.body to json format
 
 const getAllItems = async function (req, res, next) {
-  res.send("Hello api/v1");
-
-  const mysql = require("mysql2/promise");
-
-  const connection = await mysql.createConnection({
-    host: "sql3.freesqldatabase.com",
-    user: "sql3501239",
-    password: "yS6L1p416X",
-    database: "sql3501239",
-    port: 3306,
-  });
-  const [rows, fields] = await connection.execute("SELECT * FROM todo");
-  console.log(rows);
-  app.use((req, res) => {
+  try {
+    res.send("Hello api/v1");
+    const mysql = require("mysql2/promise");
+    const connection = await mysql.createConnection({
+      host: "sql3.freesqldatabase.com",
+      user: "sql3501239",
+      password: "yS6L1p416X",
+      database: "sql3501239",
+      port: 3306,
+    });
+    const [rows, fields] = await connection.execute("SELECT * FROM todo");
+    console.log(rows);
     res.send(rows);
-  });
+    res.status(200).json({ rows });
+  } catch (error) {
+    res.status(500).json({ msg: error });
+  }
   //   // try {
   //   //   await connection.query(`SELECT * FROM todo`);
   //   //   console.log("all data received");

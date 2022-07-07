@@ -5,9 +5,9 @@ const mysql = require("mysql2/promise");
 const routes = require("./Routes/routes.js");
 // require("dotenv").config();
 
-app.use((req, res) => {
-  res.send("Hello World");
-});
+// app.use((req, res) => {
+//   res.send("Hello World");
+// });
 app.use(express.json());
 app.use("/api/v1", routes);
 
