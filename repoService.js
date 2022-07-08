@@ -30,9 +30,11 @@ const addItem = async function (req, res, next) {
       port: 3306,
     });
 
-    await connection.query(
+    const result = await connection.query(
       `INSERT INTO todo (priority, date, type, item_description) VALUES ('${req.body.priority}', '${req.body.date}', '${req.body.type}', '${req.body.description}')`
     );
+    // console.log(result[0].insertId);
+    res.end(`${result[0].insertId}`);
     // console.log("inserted");
     connection.end();
   } catch (error) {
