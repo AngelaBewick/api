@@ -1,14 +1,10 @@
 const express = require("express");
 const app = express();
 const mysql = require("mysql2/promise");
-// const configDB = require("./Configure/configDB.js");
 const routes = require("./Routes/routes.js");
 // require("dotenv").config();
 
-// app.use((req, res) => {
-//   res.send("Hello World");
-// });
-
+//solve CORS error with middleware
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader(
