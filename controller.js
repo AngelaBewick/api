@@ -1,8 +1,8 @@
+require("dotenv").config();
 const express = require("express");
 const app = express();
 const mysql = require("mysql2/promise");
 const routes = require("./Routes/routes.js");
-require("dotenv").config();
 
 //solve CORS error with middleware
 app.use((req, res, next) => {
@@ -32,7 +32,10 @@ const start = async function () {
       database: process.env.DATABASE_USER,
       port: 3306,
     });
-
+    console.log(process.env.DATABASE_USER);
+    console.log(typeof process.env.DATABASE_USER);
+    console.log(process.env.DATABASE_PASSWORD);
+    console.log(typeof process.env.DATABASE_PASSWORD);
     app.listen(port, () => {
       console.log(`Server listening on port ${port}...`);
     });
