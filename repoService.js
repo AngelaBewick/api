@@ -43,27 +43,29 @@ const addItem = async function (req, res, next) {
 };
 // // addItem();
 
-// const deleteItem = async function (req, res, next) {
-//   const connection = await mysql.createConnection({
-//     host: "sql3.freesqldatabase.com",
-//     user: "sql3501239",
-//     password: "yS6L1p416X",
-//     database: "sql3501239",
-//     port: 3306,
-//   });
-//   try {
-//     await connection.query(
-//       `DELETE FROM todo WHERE item_id = ${req.params.itemID}`
-//     );
-//     console.log("deleted");
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
+const deleteItem = async function (req, res, next) {
+  try {
+    const mysql = require("mysql2/promise");
+    const connection = await mysql.createConnection({
+      host: "sql3.freesqldatabase.com",
+      user: "sql3501239",
+      password: "yS6L1p416X",
+      database: "sql3501239",
+      port: 3306,
+    });
+    const result = await connection.query(
+      `DELETE FROM todo WHERE item_id = ${req.params.itemID}`
+    );
+    console.log(result);
+    console.log("deleted");
+  } catch (error) {
+    console.log(error);
+  }
+};
 // // deleteItem();
 
 module.exports = {
   addItem,
-  //   deleteItem,
+  deleteItem,
   getAllItems,
 };
