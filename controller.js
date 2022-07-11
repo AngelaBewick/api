@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const mysql = require("mysql2/promise");
 const routes = require("./Routes/routes.js");
-// require("dotenv").config();
+require("dotenv").config();
 
 //solve CORS error with middleware
 app.use((req, res, next) => {
@@ -27,9 +27,9 @@ const start = async function () {
   try {
     await mysql.createConnection({
       host: "sql3.freesqldatabase.com",
-      user: "sql3501239",
-      password: "yS6L1p416X",
-      database: "sql3501239",
+      user: process.env.DATABASE_USER,
+      password: process.env.DATABASE_PASSWORD,
+      database: process.env.DATABASE_USER,
       port: 3306,
     });
 
